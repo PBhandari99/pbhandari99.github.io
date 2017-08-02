@@ -8,89 +8,82 @@
     <link href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css" rel="stylesheet" />
     <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:500,200,700" rel="stylesheet" />
-    <style type="text/css">a,h1,h2,h3,h4,h5,h6,li,p{font-family:Raleway,sans-serif}.resume{background-color:#1f1f1f;min-height:100vh}.resume .main{height:100%;width:700px;background-color:#fff;padding:0 25px;margin:0 auto}.resume .main .header{border-bottom:2px solid #ddd}.resume .main .header .page-title-container{margin:0 auto;text-align:center;padding-bottom:10px}.resume .main .header .page-title{font-size:48pt;display:inline}.resume .main .header .page-title-first{font-weight:400}.resume .main .header .page-title-last{font-weight:200}.resume .main .header .header-icons{text-align:center}.resume .main .header .header-icons .page-subhead{margin:1rem 15px;display:inline}.resume .main .header .fa{padding-right:10px}.resume .main .indented{padding-left:40px}.resume .main .category-row{padding-bottom:2px}.resume .main .category-row .category{margin-right:10px;padding-left:5px;padding-right:10px;border-bottom:1px solid #ddd;border-right:1px solid #ddd}.resume .main .category-row .category-row-title{margin:.4rem 0}.resume .main .category-row .category-subtitle,.resume .main .category-row .category-title{display:inline;margin-top:10px;margin-bottom:5px}.resume .main .category-row .category-bullets{margin-top:5px}.resume .main .category-row li,.resume .main .category-row p{font-size:smaller}category:last-of-type category-item:last-of-type .category,sidebar-category:last-of-type .category{border-bottom:0!important;padding-bottom:0!important;margin-bottom:0!important}
+    <style type="text/css">a,h1,h2,h3,h4,h5,h6,li,p{font-family:Raleway,sans-serif}.resume{background-color:#1f1f1f;min-height:100vh}.resume .main{height:100%;width:700px;background-color:#fff;padding:0 25px;margin:0 auto}.resume .main .header{border-bottom:2px solid #ddd}.resume .main .header .page-title-container{margin:0 auto;text-align:center;padding-bottom:10px}.resume .main .header .page-title{font-size:25pt;display:inline}.resume .main .header .page-title-first{font-weight:400}.resume .main .header .page-title-last{font-weight:400}.resume .main .header .header-icons{text-align:center}.resume .main .header .header-icons .page-subhead{margin:1rem 15px;display:inline}.resume .main .header .fa{padding-right:10px}.resume .main .indented{padding-left:40px}.resume .main .category-row{padding-bottom:2px}.resume .main .category-row .category{margin-right:10px;padding-left:5px;padding-right:10px;border-bottom:1px solid #ddd;border-right:1px solid #ddd;border-left:1px solid #ddd}.resume .main .category-row .category-row-title{margin:.4rem 0}.resume .main .category-row .category-subtitle,.resume .main .category-row .category-title{display:inline;margin-top:10px;margin-bottom:5px}.resume .main .category-row .category-bullets{margin-top:5px}.resume .main .category-row li,.resume .main .category-row p{font-size:smaller}category:last-of-type category-item:last-of-type .category,sidebar-category:last-of-type .category{border-bottom:1!important;padding-bottom:0!important;margin-bottom:0!important} .md-caption{font-size: 13px;letter-spacing: .020em;}
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script><!-- <script src="resume.js"></script> --><script>"use strict";angular.module("Resume",["ngMaterial"]).directive("resume",function(){return{restrict:"E",transclude:!0,template:'<div class="resume">\n      <section class="main" ng-transclude></section>\n    </div>'}}).directive("resumeHeading",function(){return{restrict:"E",scope:{firstName:"@",lastName:"@",website:"@",phone:"@",email:"@",github:"@",linkedin:"@"},template:'<div class="header">\n      <div class="page-title-container">\n        <h1 class="page-title page-title-first">{{firstName}}</h1>\n        <h1 class="page-title page-title-last">{{lastName}}</h1>\n      </div>\n      <div class="header-icons">\n        <span ng-if="website" class="md-subhead page-subhead"><i class="fa fa-lg fa-code"></i>{{website}}</span>\n        <span ng-if="phone" class="md-subhead page-subhead"><i class="fa fa-lg fa-phone"></i>{{phone}}</span>\n        <span ng-if="email" class="md-subhead page-subhead"><i class="fa fa-lg fa-envelope"></i>{{email}}</span>\n        <span ng-if="github" class="md-subhead page-subhead"><i class="fa fa-lg fa-github"></i>{{github}}</span>\n        <span ng-if="linkedin" class="md-subhead page-subhead"><i class="fa fa-lg fa-linkedin-square"></i>{{linkedin}}</span>\n      </div>\n    </div>'}}).directive("resumeBody",function(){return{restrict:"E",transclude:!0,template:'<div layout="row" ng-transclude></div>'}}).directive("resumeColumn",function(){return{restrict:"E",transclude:!0,template:"<div ng-transclude></div>"}}).directive("sidebarCategory",function(){return{restrict:"E",scope:{name:"@"},transclude:!0,template:'<div flex="" class="category-row">\n      <div class="category">\n        <h5 class="category-row-title">{{name}}</h5>\n        <ng-transclude></ng-transclude>\n      </div>\n    </div>'}}).directive("category",function(){return{restrict:"E",scope:{name:"@"},transclude:!0,template:'<div flex="" class="category-row">\n      <h4 class="category-row-title">{{name}}</h4>\n      <ng-transclude></ng-transclude>\n    </div>'}}).directive("categoryItem",function(){return{restrict:"E",scope:{title:"@",subtitle:"@"},transclude:!0,template:'<div class="category">\n        <h5 class="category-title md-body-2">{{title}}</h5>&nbsp;\n        <h5 class="category-subtitle md-caption">{{subtitle}}</h5>\n        <ul class="category-bullets" ng-transclude></ul>\n    </div>'}});</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script><script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script><script src="resume.js"></script>
 </head>
-<body ng-app="Resume" ng-cloak=""><resume> <resume-heading email="Prashantb1097@gmail.com" first-name="Prashant" github="PBhandari99" last-name="Bhandari" phone="929-282-5315"> </resume-heading> <resume-body> <resume-column flex="20"> <sidebar-category name="Education">
-<p>Howard University</p>
+<body ng-app="Resume" ng-cloak="">
+<resume> 
+<resume-heading email="Prashantb1097@gmail.com" first-name="Prashant" github="PBhandari99" last-name="Bhandari" phone="425-623-6613"> 
 
-<p>Graduating May 2019</p>
-
-<p>Computer Science</p>
-
-<br>
-</sidebar-category> <sidebar-category name="Coursework">
-<p>Unix Lab</p>
-
-<p>Discrete Math</p>
-
-<p>Linear Algebra</p>
-
-<p>Calculus I &amp; II</p>
-
-<p>Mobile App Development</p>
-
-<p>Computer Organization I &amp; II</p>
-
-<p>Computer Science I , II &amp; III</p>
-
-<p>Object Oriented Programming</p>
-<br>
-<p></p>
-</sidebar-category> <sidebar-category name="Achievements">
-<p>Legacy Scholarship totalling to $100,432</p>
-<br>
-</sidebar-category> <sidebar-category name="Clubs">
+</resume-heading> 
+<resume-body> 
+<!-- </sidebar-category> <sidebar-category name="Clubs">
 <p>HU Cybersecurity Club</p>
 <p>ACM</p>
-</sidebar-category> </resume-column> 
-<resume-column flex="80"> <category name="Work Experience"> 
-    <category-item subtitle="Google (From May to August 2017)" title="Engineering Practicum Intern">
+</sidebar-category>
+ </resume-column>  -->
+<resume-column flex="100"> <category name="Work Experience"> 
+    <category-item subtitle="Google (From May 2017 to August 2017)" title="Engineering Practicum Intern">
     <li>Worked in Google Cloud BigQuery Data Transfer service.</li>
     <li>Implemented the backend for scheduling SQL query job in BigQuery.</li>
     <li>Added commandline support for BigQuery Data Transfer service with end-to-end testing.</li>
 </category-item>
 
-<category-item subtitle="Google (From May 2016-August 2016)" title="Engineering Practicum Intern">
+<category-item subtitle="Google (From May 2016 to August 2016)" title="Engineering Practicum Intern">
  <li>Worked in Google internal infratructure on projects involving data ingestion for the BeyondCorp project.</li>
 <li> Implemented a loader in Python to add support for the ingestion of data from a Cloud PubSub data source into the processing pipeline.</li>
 <li>Used various Google technologies such as Protocol Buffers, Cloud PubSub, Bigtable, BigQuery, and gRPC(Stubby).</li>
 </category-item>
 
-<category-item subtitle="Wilson Consulting Group (From December 2015 - May 2016)" title="Information Security Analyst">
+<category-item subtitle="Wilson Consulting Group (From December 2015 to May 2016)" title="Information Security Analyst">
 <li>Assist with evaluating, designing, monitoring, administering and implementing cyber security systems, policies and processes.</li>
 <li>Provide input on research, analysis and troubleshooting of various security issues.</li>
 </category-item>  
 </category> 
 
 <category name="Projects">
- <category-item subtitle="Google DC Hackathon 2016" title="SafeWay">
-<li>Used Twitter API to retrieve data related to the election</li>
-<li>Analyzed the sentiment of the tweets and visualized the data using d3.js</li>
+<category-item subtitle="Google DC Hackathon 2016" title="SafeWay">
+    <li>Used Twitter API to retrieve data related to the election</li>
+    <li>Analyzed the sentiment of the tweets and visualized the data using d3.js</li>
 </category-item>
 
- <category-item subtitle="Personal project" title="LetsEat">
- <li>An iOS app that helps to find people to eat with. </li>
-<li>Used Yelp Fusion api to find the restaurent near you.</li>
-<li>Apple maps to locate people to eat with.</li>
-<li>Parse and MongoDB for the backend.</li>
+<category-item subtitle="Personal project" title="LetsEat">
+    <li>An iOS app that helps to find people to eat with. </li>
+    <li>Used Yelp Fusion api to find the restaurent near you.</li>
+    <li>Apple maps to locate people to eat with.</li>
+    <li>Parse and MongoDB for the backend.</li>
 </category-item> 
 
 </category>
 
 <category name="Skills"> <category-item title="Computer Skills">
-<li><strong>Programming Language </strong> Python, C++, Swift, Java, JavaScript, PHP, C, SQL </li>
-<li><strong>Frameworks </strong>Django, ExpressJs, iOS</li>
-<li><strong>Other Computer Skills </strong> UNIX, Git, protocol buffers(Google Open source), vim</li>
-</category-item> <category-item title="Other Courses">
-<li>Industry Course in iOS Development(CodePath)</li>
-<li>Intro to Computer Science(Taught by Google Engineer), Intro to Engineering</li>
-</category-item> </category> </resume-column> </resume-body> </resume>
-<p></p>
+    <li><strong>Programming Language </strong> Python, C++, Swift, Java, JavaScript, PHP, C, SQL </li>
+    <li><strong>Frameworks </strong>Django, ExpressJs, iOS</li>
+    <li><strong>Other Computer Skills </strong> UNIX, Git, protocol buffers(Google Open source), vim, Parse</li>
+</category-item>
 
-<p></p>
+</category>
+<category name="Education">
+    <li>Howard University, Washington, DC</li>
+    <li>Bachelor of Science in Computer Science</li>
+    <li>GPA: 3.6</li>
+    <category-item title="Courses">
+        <li> Computer Organization, Mobile App Development, Object Oriented Programming</li>
+        <li> Computer Science I , II &amp; III, Unix Lab, Linear Algebra, Discrete Math </li>
+        <li>Industry Course in iOS Development(CodePath)</li>
+    </category-item>
+    <!-- <category-item title="Other Courses"> -->
+        <!-- <li>Intro to Computer Science(Taught by Google Engineer), Intro to Engineering</li> -->
+    <!-- </category-item>  -->
+    <category-item title="Achievement">
+        <li>Legacy Scholarship totalling to $100,432</li>
+    </category-item>
 
-<p></p>
+</category>
+</resume-column>
+</resume-body> 
+</resume>
+<br>
 </body>
 </html>
